@@ -1,0 +1,287 @@
+[
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{	"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {},
+		"sentAt": "string"
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		}
+	},
+	{
+		"organizationId": "string",
+		"projectId": "string",
+		"anonymousId": "string",
+		"userId": "string",
+		"requestId": "string",
+		"category": "string",
+		"event": "string",
+		"context": {
+			"userAgent": "string",
+			"deviceType": "pc"
+			},
+		"properties": {
+			"key": "value"
+		},
+		"sentAt": ""
+	}
+]
