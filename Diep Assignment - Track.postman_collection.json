@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "8e918b84-5d2b-4ab9-837e-166400146dfe",
+		"name": "Diep Assignment - Track",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19171885"
+	},
+	"item": [
+		{
+			"name": "Track API - Test",
+			"item": [
+				{
+					"name": "Track API - Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const requestBody = JSON.parse(pm.request.body.raw);\r",
+									"let missingKeys = [];\r",
+									"let emptyKeys = [];\r",
+									"let isInvalidMissingKey = false;\r",
+									"let isInvalidEmptyKey = false;\r",
+									"//list the request params which are mendatory\r",
+									"const requiredKeys = [\"organizationId\", \"projectId\", \"requestId\", \"event\", \"context\", \"properties\", \"sentAt\"];\r",
+									"//list the required params that are strings\r",
+									"const stringRequiredKeys = [\"organizationId\", \"projectId\", \"requestId\", \"event\", \"sentAt\"];\r",
+									"//list the required params that are objects\r",
+									"const objectRequiredKeys = [\"context\", \"properties\"];\r",
+									"//find the mendatory params that missing in request body\r",
+									"for (const key of requiredKeys){\r",
+									"    if (!(key in requestBody)){\r",
+									"        isInvalidMissingKey = true;\r",
+									"        missingKeys.push(key);\r",
+									"    }\r",
+									"}\r",
+									"//find the mendatory params that are empty string\r",
+									"for (const key of stringRequiredKeys){\r",
+									"    if (requestBody[key] === \"\"){\r",
+									"        isInvalidEmptyKey = true;\r",
+									"        emptyKeys.push (key);\r",
+									"    }\r",
+									"}\r",
+									"//find the mendatory params that are empty object\r",
+									"for (const key of objectRequiredKeys){\r",
+									"    if (typeof requestBody[key] === 'object' && Object.keys(requestBody[key]).length === 0){\r",
+									"        isInvalidEmptyKey = true;\r",
+									"        emptyKeys.push (key);\r",
+									"    }\r",
+									"}\r",
+									"//check and return result if the required params are missing in request body\r",
+									"if(isInvalidMissingKey){\r",
+									"    pm.test(`Check that API response error message \"Invalid request body\" and status code is 400 if Request body missing params: ${missingKeys.join(\", \")}`, function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid request body\");\r",
+									"    pm.expect(pm.response.to.have.status(400));\r",
+									"})}\r",
+									"//check and return result if the required params have empty string or empty object\r",
+									"else if (isInvalidEmptyKey){\r",
+									"    pm.test(`Check that API response error message \"Invalid request body\" and status code is 400 if mandatory fields : ${emptyKeys.join(\", \")} have empty value`, function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid request body\");\r",
+									"    pm.expect(pm.response.to.have.status(400));\r",
+									"});}\r",
+									"//check and return result if the request params are valid\r",
+									"else{\r",
+									"    pm.test('Check that Information is tracked successfully, API response message \"OK\" and status 200', function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ok\");\r",
+									"    pm.expect(pm.response.to.have.status(200));\r",
+									"  });}\r",
+									" //Verify response body when status code is 200 \r",
+									"if (pm.response.code === 200) {pm.test('Verify response body when status code is 200', function(){\r",
+									"    pm.expect(pm.response.json()).to.have.property(\"result\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"ok\");\r",
+									"    pm.expect(typeof pm.response.json().result).to.eql(\"string\");\r",
+									"});}\r",
+									"//Verify response body when status code is 200 \r",
+									"else if (pm.response.code === 400) {pm.test(\"Verify response body when status code is 400\", function(){\r",
+									"    pm.expect(pm.response.json()).to.have.property(\"message\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid request body\");\r",
+									"    pm.expect(typeof pm.response.json().message).to.eql(\"string\");\r",
+									"});}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const iterationData = pm.iterationData.toObject();\r",
+									"//Mapping request params in request body with iteration data\r",
+									"const requestBody = {\r",
+									"    \"organizationId\": iterationData.organizationId,\r",
+									"    \"projectId\": iterationData.projectId,\r",
+									"    \"anonymousId\": iterationData.anonymousId,\r",
+									"    \"userId\": iterationData.userId,\r",
+									"    \"requestId\": iterationData.requestId,\r",
+									"    \"category\": iterationData.category,\r",
+									"    \"event\": iterationData.event,\r",
+									"    \"context\": iterationData.context,\r",
+									"    \"properties\": iterationData.properties,\r",
+									"    \"sentAt\": iterationData.sentAt\r",
+									"};\r",
+									"pm.request.body.raw = JSON.stringify(requestBody);\r",
+									"let modifiedBody = Object.assign({}, requestBody);\r",
+									"//remove the request param in the request body if it is missing in iteration data\r",
+									"if (modifiedBody.organizationId === undefined)\r",
+									"{\r",
+									"    delete modifiedBody.organizationId;\r",
+									"}\r",
+									"\r",
+									"if (modifiedBody.projectId === undefined)\r",
+									"{   \r",
+									"    delete modifiedBody.projectId;\r",
+									"}\r",
+									"\r",
+									"if (modifiedBody.requestId === undefined)\r",
+									"{\r",
+									"    delete modifiedBody.requestId;\r",
+									"}\r",
+									"\r",
+									"if (modifiedBody.event === undefined)\r",
+									"{\r",
+									"    delete modifiedBody.event;\r",
+									"}\r",
+									"\r",
+									"if (modifiedBody.context === undefined)\r",
+									"{\r",
+									"    delete modifiedBody.context;\r",
+									"}\r",
+									"\r",
+									"if (modifiedBody.properties === undefined)\r",
+									"{\r",
+									"    delete modifiedBody.properties;\r",
+									"}\r",
+									"\r",
+									"if (modifiedBody.sentAt === undefined)\r",
+									"{\r",
+									"    delete modifiedBody.sentAt;\r",
+									"}\r",
+									"pm.request.body.raw = JSON.stringify(modifiedBody);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organizationId\":\"{{organizationId}}\",\r\n  \"projectId\":\"{{projectId}}\",\r\n  \"anonymousId\":\"{{anonymousId}}\",\r\n  \"userId\":\"{{userId}}\",\r\n  \"requestId\":\"{{requestId}}\",\r\n  \"category\":\"{{category}}\",\r\n  \"event\":\"{{event}}\",\r\n  \"context\": {\r\n    \"userAgent\":\"{{userAgent}}\",\r\n    \"deviceType\":\"{{deviceType}}\"\r\n  },\r\n  \"properties\":{},\r\n  \"sentAt\":\"{{sentAt}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sampleproject.ingest.mpdev.io/v1/track",
+							"protocol": "https",
+							"host": [
+								"sampleproject",
+								"ingest",
+								"mpdev",
+								"io"
+							],
+							"path": [
+								"v1",
+								"track"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Track API - Test Data Type",
+			"item": [
+				{
+					"name": "Track API - Test Data Type",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const iterationData = pm.iterationData.toObject();\r",
+									"//Mapping request params in request body with iteration data\r",
+									"const requestBody = {\r",
+									"    \"organizationId\": iterationData.organizationId,\r",
+									"    \"projectId\": iterationData.projectId,\r",
+									"    \"anonymousId\": iterationData.anonymousId,\r",
+									"    \"userId\": iterationData.userId,\r",
+									"    \"requestId\": iterationData.requestId,\r",
+									"    \"category\": iterationData.category,\r",
+									"    \"event\": iterationData.event,\r",
+									"    \"context\": iterationData.context,\r",
+									"    \"properties\": iterationData.properties,\r",
+									"    \"sentAt\": iterationData.sentAt\r",
+									"};\r",
+									"//Set the request body\r",
+									"pm.request.body.raw = JSON.stringify(requestBody);\r",
+									"console.log(\"original\", requestBody);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const requestBody = JSON.parse(pm.request.body.raw);",
+									"//list the request params that are strings",
+									"const stringKey = ['organizationId', 'projectId', 'anonymousId', 'userId', 'requestId', 'category', 'event', 'sentAt'];",
+									"//list the request params that are objects",
+									"const objectKey = ['context', 'properties'];",
+									"const contextKey = ['userAgent', 'deviceType'];",
+									"",
+									"let invalidParams = [];",
+									"let isInvalid = false;",
+									"//find the request params that are strings in request body",
+									"for (const key of stringKey) {",
+									"  if (typeof requestBody[key] !== \"string\") {",
+									"    isInvalid = true;",
+									"    invalidParams.push(key);",
+									"  }",
+									"}",
+									"//find the request params that are objects in request body",
+									"for (const key of objectKey) {",
+									"  if (typeof requestBody[key] !== \"object\") {",
+									"    isInvalid = true;",
+									"    invalidParams.push(key);",
+									"  }",
+									"}",
+									"for (const key of contextKey){",
+									"    if (typeof requestBody.context[key] !== \"string\"){",
+									"        isInvalid = true;",
+									"        invalidParams.push (key);",
+									"    }",
+									"}",
+									"//check and return result if the request param has invalid data type",
+									"if (isInvalid){",
+									"    pm.test(`Check that API response 400 and message \"Invalid request body\" if the parameters: ${invalidParams.join(\", \")} have invalid data type`, function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid request body\");",
+									"    pm.expect(pm.response.to.have.status(400));",
+									"  });}",
+									"//check and return result if the request param has valid data type",
+									"/*else{",
+									"    pm.test(\"Track event successfully\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"ok\");",
+									"    pm.expect(pm.response.to.have.status(200));",
+									"  });}*/",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"organizationId\":\"{{organizationId}}\",\r\n  \"projectId\":\"{{projectId}}\",\r\n  \"anonymousId\":\"{{anonymousId}}\",\r\n  \"userId\":\"{{userId}}\",\r\n  \"requestId\":\"{{requestId}}\",\r\n  \"category\":\"{{category}}\",\r\n  \"event\":\"{{event}}\",\r\n  \"context\":{\r\n    \"userAgent\":\"{{context.userAgent}}\",\r\n    \"deviceType\":\"{{context.deviceType}}\"},\r\n  \"properties\": {},\r\n  \"sentAt\":\"{{sentAt}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sampleproject.ingest.mpdev.io/v1/track",
+							"protocol": "https",
+							"host": [
+								"sampleproject",
+								"ingest",
+								"mpdev",
+								"io"
+							],
+							"path": [
+								"v1",
+								"track"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
