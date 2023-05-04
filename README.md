@@ -34,9 +34,9 @@
 ### Using Newman tool
 1. Open command line
 2. Locate to the folder “Diep_Assignment” that you have extracted
-3. Use command: newman run "Diep Assignment - Track.postman_collection.json" --folder "Track API - Test" -d "test-data-Track API - Test.json" -r html
+3. Use command: `newman run "Diep Assignment - Track.postman_collection.json" --folder "Track API - Test" -d "test-data-Track API - Test.json" -r html`
 4. Hit Enter => finish the test objective of  “Track API - Test”. Then you can see the report in the folder “newman”
-5. Use command: newman run "Diep Assignment - Track.postman_collection.json" --folder "Track API - Test Data Type" -d "test-data-Track API - Test Data Type.json" -r html 
+5. Use command: `newman run "Diep Assignment - Track.postman_collection.json" --folder "Track API - Test Data Type" -d "test-data-Track API - Test Data Type.json" -r html` 
 6. Hit Enter => finish the test objective of  “Track API - Test Data Type”. Then you can see the report in the folder “newman”
 
 
