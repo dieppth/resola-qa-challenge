@@ -8,9 +8,10 @@
     - Install html report for newman in the same folder of API Collection folder.
     - Guide: https://learning.postman.com/docs/collections/using-newman-cli/installing-running-newman/
 - Download the collection file `Diep Assignment - Track.postman_collection.json`
+- Download 2 iteration files: `test-data-Track API - Test Data Type.json`, `test-data-Track API - Test.json`
 
 ## Introduction:
-There are 2 folders in the API collection, they have different test objectives and use different test data sets.
+When importing successfully the Diep Assignment - Track" collection in Postman, you will see 2 folders, they have different test objectives and use different test data sets.
 - The API “Track API - Test” objectives:
    - Verify the API response body with status code 200
    - Verify the API response body with status code 400
@@ -23,10 +24,10 @@ There are 2 folders in the API collection, they have different test objectives a
 1. Open Postman
 2. Import “Diep Assignment - Track.postman_collection.json”, if successfully you will see the collection like this: ![Import Collection](/images/collection.png)
 3. Click Run folder “Track API - Test” folder
-4. Select the iteration data file “test-data-Track API - Test.json, you will see: ![Run Test Objective 1](/images/trackapi.png)
+4. Select the iteration data file `test-data-Track API - Test.json`, you will see: ![Run Test Objective 1](/images/trackapi.png)
 5. Click button Run => finish the test objective of  “Track API - Test”
 6. Click Run folder “Track API - Test Data Type” folder
-7. Select the iteration data file “test-data-Track API - Test Data Type.json, you will see: ![Run Test Objective 2](/images/trackapi-datatype.png)
+7. Select the iteration data file `test-data-Track API - Test Data Type.json`, you will see: ![Run Test Objective 2](/images/trackapi-datatype.png)
 8. Click button Run => finish the test objective of  “Track API - Test Data Type”
 ### Using Newman tool
 1. Download file Diep_Assignment.zip and extract it.
